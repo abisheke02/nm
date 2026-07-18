@@ -1,0 +1,5 @@
+{
+  "extends": "sanity/tsconfig",
+  "include": ["./schemaTypes/**/*", "./*.ts", "./*.tsx"],
+  "exclude": ["node_modules", "dist"]
+}

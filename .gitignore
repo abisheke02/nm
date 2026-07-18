@@ -1,0 +1,41 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# local claude code settings
+.claude/settings.local.json
+
+# env
+.env
+.env.local
+.env.*.local
+apps/*/.env
+apps/*/.env.local
+
+# build output
+.next/
+dist/
+build/
+.medusa/
+.turbo/
+
+# local database
+db/data/
+
+# sanity
+apps/studio/dist/
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# editor / os
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
