@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from '@medusajs/framework/http';
+import type { MedusaStoreRequest, MedusaResponse } from '@medusajs/framework/http';
 import { APPOINTMENT_BOOKING_MODULE } from '../../../modules/appointment-booking';
 import AppointmentBookingModuleService from '../../../modules/appointment-booking/service';
 
@@ -11,7 +11,7 @@ type CreateAppointmentBody = {
   notes?: string;
 };
 
-export async function POST(req: MedusaRequest<CreateAppointmentBody>, res: MedusaResponse) {
+export async function POST(req: MedusaStoreRequest<CreateAppointmentBody>, res: MedusaResponse) {
   const appointmentBookingService: AppointmentBookingModuleService = req.scope.resolve(
     APPOINTMENT_BOOKING_MODULE
   );

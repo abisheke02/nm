@@ -1,4 +1,4 @@
-import type { MedusaRequest, MedusaResponse } from '@medusajs/framework/http';
+import type { MedusaRequest, MedusaStoreRequest, MedusaResponse } from '@medusajs/framework/http';
 import { PRODUCT_REVIEW_MODULE } from '../../../modules/product-review';
 import ProductReviewModuleService from '../../../modules/product-review/service';
 
@@ -21,7 +21,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
   res.json({ reviews });
 }
 
-export async function POST(req: MedusaRequest<CreateReviewBody>, res: MedusaResponse) {
+export async function POST(req: MedusaStoreRequest<CreateReviewBody>, res: MedusaResponse) {
   const productReviewService: ProductReviewModuleService = req.scope.resolve(PRODUCT_REVIEW_MODULE);
   const body = req.validatedBody ?? req.body;
 

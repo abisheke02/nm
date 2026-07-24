@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const EmbeddedPostgres = require('embedded-postgres').default;
 
@@ -5,31 +6,29 @@ const PORT = Number(process.env.DB_PORT || 5433);
 const USER = process.env.DB_USER || 'postgres';
 const PASSWORD = process.env.DB_PASSWORD || 'postgres';
 const DATABASE = process.env.DB_NAME || 'nithya_commerce';
+const DATA_DIR = path.join(__dirname, 'data');
 
 const pg = new EmbeddedPostgres({
-  databaseDir: path.join(__dirname, 'data'),
+  databaseDir: DATA_DIR,
   user: USER,
   password: PASSWORD,
   port: PORT,
   persistent: true,
+  initdbFlags: ['--encoding=UTF8', '--locale=C'],
 });
 
 async function main() {
-  await pg.initialise();
+  const alreadyInitialised = fs.existsSync(path.join(DATA_DIR, 'PG_VERSION'));
+  if (!alreadyInitialised) {
+    await pg.initialise();
+  }
   await pg.start();
 
-  const exists = await pg
-    .getPgClient()
-    .then(async (client) => {
-      await client.connect();
-      const res = await client.query('SELECT 1 FROM pg_database WHERE datname = $1', [DATABASE]);
-      await client.end();
-      return res.rowCount > 0;
-    });
-
-  if (!exists) {
+  try {
     await pg.createDatabase(DATABASE);
     console.log(`Created database "${DATABASE}"`);
+  } catch {
+    // database already exists from a previous run — nothing to do
   }
 
   console.log('');

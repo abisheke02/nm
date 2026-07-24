@@ -1,5 +1,3 @@
-'use client';
-
 const links = [
   { href: '/about', label: 'About' },
   { href: '/portfolio', label: 'Portfolio' },

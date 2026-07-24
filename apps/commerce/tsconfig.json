@@ -4,7 +4,7 @@
     "checkJs": false,
     "skipLibCheck": true,
     "module": "CommonJS",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "sourceMap": true,
