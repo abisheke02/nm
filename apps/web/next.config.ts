@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  transpilePackages: ["@nithya/ui"],
+  images: {
+    remotePatterns: [{ hostname: "cdn.sanity.io" }],
+  },
 };
 
 export default nextConfig;

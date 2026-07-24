@@ -1,0 +1,29 @@
+:root {
+  --nm-bg: #f3f1ec;
+  --nm-surface: #ffffff;
+  --nm-surface-2: #ebe7de;
+  --nm-border: #ddd6c8;
+  --nm-text: #211d17;
+  --nm-text-muted: #6b6152;
+  --nm-accent: #8a6d3b;
+  --nm-accent-soft: #f1e9d8;
+  --nm-site: #8a6d3b;
+  --nm-shop: #6b3f5c;
+  --nm-font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --nm-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nm-bg: #15130f;
+    --nm-surface: #1c1914;
+    --nm-surface-2: #221e17;
+    --nm-border: #34301f;
+    --nm-text: #ece7db;
+    --nm-text-muted: #a89d84;
+    --nm-accent: #d3a95c;
+    --nm-accent-soft: #2b2314;
+    --nm-site: #d3a95c;
+    --nm-shop: #d491bd;
+  }
+}
